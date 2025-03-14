@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en" class="bd-theme-features" data-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SHARE</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <a class="nav__logo">SHARE</a>
+            </a>
+
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+
+                    // Get all "navbar-burger" elements
+                    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+                    // Add a click event on each of them
+                    $navbarBurgers.forEach(el => {
+                        el.addEventListener('click', () => {
+
+                            // Get the target from the "data-target" attribute
+                            const target = el.dataset.target;
+                            const $target = document.getElementById(target);
+
+                            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                            el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+
+                        });
+                    });
+
+                });
+            </script>
+        </div>
+
+        <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="/connect">
+                    Connect
+                </a>
+
+                <a class="navbar-item" href="/about">
+                    About
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        {% if current_user.is_authenticated == False %}
+                        <a class="button is-primary" href="/register">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light" href="/login">
+                            Log in
+                        </a>
+                        {% else %}
+                        <a class="button is-primary" href="/logout">
+                            <strong>Log Out</strong>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                <strong>Connect</strong>
+            </h1>
+            <p class="subtitle">
+                What are you here to do?
+            </p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="grid is-col-min-10">
+            <div class="cell">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <p class="title is-4">Donate</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0.75rem 1.7rem 1.5rem;">
+                        <div class="media">
+                            <p>
+                                If you are looking to help those in need, feel free to <a href="/register">make an
+                                    account</a> and post a donation offer. This process will allow people in your
+                                community to access your aid.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cell">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="media">
+                            <p class="title is-4">Request</p>
+                        </div>
+                    </div>
+                    <div class="card-body" style="padding: 0.75rem 1.7rem 1.5rem;">
+                        <div class="media">
+                            <p>
+                                If you are in need, please <a href="/register">make an account</a> and fill ou the
+                                request form. This will make
+                                you elligible to be connected to someone willing to help you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

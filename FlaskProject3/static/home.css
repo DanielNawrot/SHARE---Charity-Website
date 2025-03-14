@@ -1,0 +1,388 @@
+/* Main Stylesheet */
+
+/* Ensure no horizontal scrolling */
+html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(90deg, #282826, #203834) !important;
+    overflow-x: hidden !important;
+}
+
+a {
+    color: #FFFFFF !important;
+}
+
+.nav {
+    height: 3.2rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    color: #fff !important;
+}
+
+.nav__menu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav__menu ul li {
+    list-style: none;
+}
+
+.nav__menu ul li a {
+    color: #FFFFFF !important;
+    font-family: "Montserrat", serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out !important;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+    padding: 1rem;
+    display: block;
+}
+
+.nav__menu li:hover {
+    text-decoration: underline !important;
+    color: #2081C3 !important;
+}
+
+.nav__hamburger {
+    width: 1.875rem;
+    height: 1.313rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.nav__hamburger__line {
+    height: 0.188rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.625rem;
+    transition: all ease-in-out 0.2s;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 550px) {
+    .nav__hamburger {
+        display: flex;
+    }
+
+    .nav__menu {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        background-color: none;
+        top: -30rem;
+        width: 100%;
+        transition: all ease-in-out 0.4s;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 3rem 0 0.6rem;
+    }
+
+    .nav__menu ul li {
+        text-align: center;
+    }
+
+    .nav__menu ul li a {
+        padding: 0.5rem;
+    }
+
+    .nav__menu {
+        z-index: -1;
+    }
+
+    .nav__menu.active {
+        top: 0;
+    }
+
+    .nav__hamburger.active :nth-child(1) {
+        transform: rotate(45deg) translate(0.45rem, 0.1875rem);
+    }
+
+    .nav__hamburger.active :nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav__hamburger.active :nth-child(3) {
+        transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
+    }
+}
+
+
+/*/////////////////////////*/
+
+
+
+/* Header Text Links */
+.header-nav-text {
+    color: #FFFFFF !important;
+    font-family: "Montserrat", serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out !important;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+}
+
+.header-nav-text:hover {
+    text-decoration: underline !important;
+    color: #2081C3 !important;
+}
+
+.header-nav-text-current {
+    color: #FFFFFF !important;
+    font-family: "Montserrat", serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+    text-decoration: underline dotted;
+    transition: color 0.3s ease-in-out !important;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+}
+
+.header-nav-text-current:hover {
+    text-decoration: underline dotted !important;
+    color: #2081C3 !important;
+}
+
+/* Button in Navigation */
+.nav-menu .btn {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Header Container */
+.home-header {
+    line-height: 1;
+    padding: 1rem 1.5rem;
+}
+
+/* Align Logo and Nav Menu */
+.home-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styles */
+.main-logo-text {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 2.25rem !important;
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    transition: color 0.5s ease-in-out !important;
+    margin: auto 1rem !important;
+}
+
+.main-logo-text:hover {
+    color: #F0C808 !important;
+}
+
+/* Navigation Menu - Desktop */
+.nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Toggler Button - Hidden on Desktop */
+.navbar-toggler {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    /* Hidden by default */
+}
+
+/* Responsive Dropdown Styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        /* Hide by default on small screens */
+        flex-direction: column;
+        /* Stack links vertically */
+        background-color: #121212;
+        /* Background for dropdown */
+        padding: 1rem;
+        /* Padding for dropdown */
+        position: absolute;
+        /* Position below the header */
+        top: 100%;
+        /* Below the header */
+        left: 0;
+        /* Full width */
+        width: 100%;
+        /* Full-width dropdown */
+        z-index: 1000;
+        /* Ensure it stays on top */
+    }
+
+    /* Show nav-menu when toggler is clicked */
+    .nav-menu.show {
+        display: flex;
+        /* Display flex when 'show' class is added */
+    }
+
+    .header-nav-text {
+        margin: 0.5rem 0 !important;
+        text-align: center !important;
+        /* Center align links for dropdown */
+    }
+
+    .navbar-toggler {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: block !important;
+        /* Show toggler on smaller screens */
+    }
+
+    .hero-text {
+        font-size: 20vw;
+    }
+}
+
+/* Scroll Fix */
+.nav-scroller {
+    position: relative !important;
+    z-index: 1 !important;
+    height: 2.75rem !important;
+    overflow-y: hidden !important;
+}
+
+/* Other Styles Remain Intact */
+.hero-section {
+    position: relative !important;
+    width: 100vw;
+    height: 50vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    z-index: -3;
+}
+
+/* Ripple Animation */
+.ripple {
+    position: absolute !important;
+    border-radius: 50% !important;
+    background: #CA054D !important;
+    width: 10px !important;
+    height: 10px !important;
+    transform: scale(1) !important;
+    animation: ripple-animation 1s ease-out forwards !important;
+    pointer-events: none !important;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(100) !important;
+        opacity: 0 !important;
+    }
+}
+
+.hero-text {
+    color: #2081C3 !important;
+    font-family: 'Montserrat', serif !important;
+    font-optical-sizing: auto !important;
+    font-size: 8vw !important;
+    text-decoration: none !important;
+    font-weight: 800 !important;
+    transition: color 0.7s ease-in-out !important;
+    position: relative !important;
+    z-index: 1;
+    user-select: none;
+}
+
+.hero-text:hover {
+    color: #CA054D !important;
+}
+
+/* Call-to-Action Buttons */
+.my-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: left;
+    gap: 1.5rem;
+}
+
+.cta-button {
+    font-family: 'Montserrat', serif !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    background-color: transparent;
+    border: 2px solid #2081C3;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #2081C3;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.cta-button:hover::before {
+    width: 100%;
+    /* Fill background on hover */
+}
+
+.cta-button:hover {
+    color: black;
+    /* Contrast color on hover */
+}
+
+.cta-button:active {
+    transform: scale(0.95);
+    /* Slight press effect */
+}
